@@ -28,6 +28,6 @@ RBNNode {
 	}
 	printOn { arg stream;
 		if(status == 0, {stream <<"-";},{stream << "#"});
-Ê Ê }
+	}
 
 }
