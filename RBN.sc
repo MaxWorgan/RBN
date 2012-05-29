@@ -1,20 +1,19 @@
 RBN{
-	var nodes,links,k,numNodes;
+	var nodes,links,numNodes;
 	*new {
 		^super.new
 	}
-	init { | anumNodes, ak |
+	init { | anumNodes, k |
 		numNodes = anumNodes;
-		k = ak;
 		nodes = Array.fill(numNodes, {RBNNode.new.init(k)});
 		links = Array.fill(numNodes,0);
 		this.createNetwork;
 	}
 	
 	createNetwork{
-		numNodes.do({|n|
-			links.put(n,{rand(numNodes)}.dup(k));
-		});
+		nodes.do({|n,i|
+			links.put(i, {rand(numNodes)}.dup(n.k));
+		});		
 	}
 	//using a classical updating scheme
 	step{
