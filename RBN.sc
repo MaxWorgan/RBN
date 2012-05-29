@@ -3,9 +3,10 @@ RBN{
 	*new {
 		^super.new
 	}
-	init { | anumNodes, k |
-		numNodes = anumNodes;
-		nodes = Array.fill(numNodes, {RBNNode.new.init(k)});
+	// number of nodes in network, k is mean number of connects, p is probablity of each boolean function
+	init { | numberOfNodes, k , p |
+		numNodes = numberOfNodes;
+		nodes = Array.fill(numNodes, {RBNNode.new.init(k,p)});
 		links = Array.fill(numNodes,0);
 		this.createNetwork;
 	}

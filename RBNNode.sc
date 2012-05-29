@@ -1,16 +1,15 @@
 RBNNode {
-	var <status, <k,func,<>inputs, <lookup;
+	var <status, <k,func,<>inputs, <lookup, p;
 	*new {
 		^super.new
 	}
 	
-	init { arg nk = 2.5;
+	init { arg nk = 2.5, prob = 0.5;
 		var powNum;
-		k = nk.floor;			  	//set k - num of connections
-		if(nk.frac.coin, {k=k+1},{}); // allow connection probabilities
-		powNum = 2.pow(k);
-		status = 2.rand; 		  //randomly alive or dead
-		func = Array.rand(powNum,0,1);//generate random boolean function
+		k = (1.sum3rand + nk).round; //set k to be mean num of connection		powNum = 2.pow(k);
+		status = 2.rand; 		  	//randomly alive or dead
+		p = prob;					//use p to generate boolean functions
+		func = Array.fill(powNum,{if(p.coin, {0},{1})});//generate random boolean function
 		inputs = Array.fill(k,0);	  //setup inputs
 
 		//create lookup table
