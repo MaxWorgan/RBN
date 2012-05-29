@@ -1,0 +1,10 @@
+
+
+Simple RBN impelmentation for supercollider
+
+
+a = RBN.new; //create a new network
+a.init(32,2.9); // init with number of nodes, and k (number of inputs)
+100.do({a.step;a.postln}); // step through the results (step returns a array for further use)
+
+the magic values for k are  2 < k < 3 
