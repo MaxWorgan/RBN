@@ -36,7 +36,7 @@ RBN{
 		nodes.do({|n|
 			n.post;
 		});
-Ê Ê }
+  }
 }
 
 		
